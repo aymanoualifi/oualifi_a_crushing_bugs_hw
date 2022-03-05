@@ -4,9 +4,6 @@
 		gameBoard = document.querySelector(".puzzle-board"),
 		puzzlePieces = document.querySelectorAll(".puzzle-pieces *"),
 		dropZones = document.querySelectorAll(".drop-zone");
-
-		// const is a variable whose value can't change - it's immutable. Use this to assign bits of data that will be constant (const) for the entire lifecycle of your app.
-
 		// puzzlePaths refer to half the image src that we need to build -. need to append an index to them
 
 	const puzzlePaths = ["topLeft", "topRight", "bottomLeft", "bottomRight"]
@@ -71,8 +68,6 @@
 	}
 
 	function changeImgSet() {
-		// The "this" keyword refers to the elemen that triggers this function (the nav button we click with the custom data attribute of bgref)
-		// debugger;
 
 		CleanElements(this.dataset.bgref);
 		CleanElements1(this.dataset.bgref);
@@ -82,7 +77,7 @@
 
 		gameBoard.style.backgroundImage = `url(images/background${this.dataset.bgref}.jpg)`;
 
-			// loop through all of the small draggable images and chabge their src attribute with JS
+			// change the draggable images' src sttributes with JS after looping them 
 			puzzlePaths.forEach((img, index) => {
 
 				puzzlePieces[index].src = `images/${img + this.dataset.bgref}.jpg`
