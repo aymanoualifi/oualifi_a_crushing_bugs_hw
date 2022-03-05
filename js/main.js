@@ -5,17 +5,11 @@
 		puzzlePieces = document.querySelectorAll(".puzzle-pieces *"),
 		dropZones = document.querySelectorAll(".drop-zone");
 
-		// const is a variable whose value can't change - it's immutable. Use this to assign bits of data that will be constant (const) for the entire lifecycle of your app.
-
-		// puzzlePaths refer to half the image src that we need to build -. need to append an index to them
 	const puzzlePaths = ["topLeft", "topRight", "bottomLeft", "bottomRight"]
 
 	function changeImgSet() {
-		// The "this" keyword refers to the elemen that triggers this function (the nav button we click with the custom data attribute of bgref)
-		// debugger;
 		gameBoard.style.backgroundImage = `url(images/background${this.dataset.bgref}.jpg)`;
-
-		// loop through all of the small draggable images and chabge their src attribute with JS
+        //change the draggable images src attribute after looping them with JS
 		puzzlePaths.forEach((img, index) => {
 			puzzlePieces[index].src = `images/${img + this.dataset.bgref}.jpg`
 		});
@@ -23,7 +17,6 @@
 
 	function dragStarted(event) {
 		console.log('started draggin a piece');
-		// use the setData method of the drag event to store a reference to the current element
 		event.dataTransfer.setData('currentItem', event.target.id);
 	}
 
@@ -51,7 +44,6 @@
 	// add event handling here -> loop through theThumbnails array and add event handling to each image
 	theThumbnails.forEach(item => item.addEventListener("click", changeImgSet));
 
-	//listen for the dragstarted event on the puzzle puzzlePieces
 	puzzlePieces.forEach(piece => piece.addEventListener ("dragstart", dragStarted));
 
 	//add event handling for the drop zones (dragover and drop)
