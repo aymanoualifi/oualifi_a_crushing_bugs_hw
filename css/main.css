@@ -39,9 +39,9 @@ body {
 }
 
 .puzzle-image {
-	width: 40%;
+	width: 100%;
 	display: block;
-	padding: 8px;
+	padding: 1px;
 	cursor: pointer;
 }
 
